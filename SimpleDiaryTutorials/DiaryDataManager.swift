@@ -30,6 +30,23 @@ class DiaryDataManager:ObservableObject {
         ]
     }
     
+    func saveDiary(Diary diary:DiaryModel?) -> Bool {
+        if let data = diary {
+            
+            for (i, item) in dataList.enumerated() {
+                if item.keyDate == data.keyDate {
+                    dataList.remove(at: i)
+                    break
+                }
+            }
+            dataList.insert(data, at: 0)
+            return true
+        }
+        
+        
+        return false
+    }
+    
     func getList() -> [DiaryModel] {
         if dataList.isEmpty {
             return getDummyData()

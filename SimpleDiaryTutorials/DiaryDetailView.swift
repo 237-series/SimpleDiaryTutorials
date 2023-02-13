@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DiaryDetailView: View {
-    let diary:DiaryModel
+    @State var diary:DiaryModel
+    @State var isEditMode:Bool =  false
+    @State var contents:String = ""
     
     func getImageName() -> String {
         if let weather = diary.weather {
@@ -54,9 +56,14 @@ struct DiaryDetailView: View {
     
     var DiaryDescription: some View {
         ScrollView {
-            Text(getDiaryContents())
-                .foregroundColor(.secondary)
-                .fixedSize(horizontal: false, vertical: true)
+            if (isEditMode == false) {
+                Text(getDiaryContents())
+                    .foregroundColor(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            else {
+                TextField("일기내용", text:$contents, axis: .vertical)
+            }
         }
     }
     
@@ -95,6 +102,56 @@ struct DiaryDetailView: View {
             .cornerRadius(16)
             .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: -5)
         }
+        .onTapGesture(count: 2, perform: {
+            modeChange()
+        })
+    }
+    
+    func modeChange() {
+        if let content = diary.contents {
+            self.contents = content
+        }
+        
+        self.isEditMode.toggle()
+    }
+    
+    var bottomButtons: some View {
+        HStack {
+            Spacer()
+            Button {
+                if let content = diary.contents {
+                    self.contents = content
+                }
+                modeChange()
+            } label: {
+                HStack {
+                    Image(systemName: "trash")
+                    Text("취소")
+                        .fontWeight(.semibold)
+                }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.red)
+                .cornerRadius(40)
+            }
+            Button {
+                diary.contents = self.contents
+                self.isEditMode = !DiaryDataManager.shared.saveDiary(Diary:self.diary)
+            } label: {
+                HStack {
+                    Image(systemName: "pencil.circle")
+                    Text("수정완료")
+                        .fontWeight(.semibold)
+                }
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.green)
+                .cornerRadius(40)
+            }
+            
+        }
+        .opacity(isEditMode ? 1 : 0)
+        .padding()
     }
     
     var body: some View {
@@ -109,6 +166,11 @@ struct DiaryDetailView: View {
                         
                         
                 }
+            }
+            
+            VStack {
+                Spacer()
+                bottomButtons
             }
         }
         .edgesIgnoringSafeArea(.top)
