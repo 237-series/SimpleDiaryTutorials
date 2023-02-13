@@ -21,9 +21,8 @@ struct TopArea: View {
             .padding()
             .sheet(isPresented: $isShowModal) {
                 //
+                DiaryInputModal(isPresented: $isShowModal)
             }
-
-            
         }
         .background(.white)
         .cornerRadius(20)
@@ -34,19 +33,25 @@ struct TopArea: View {
 struct DiaryListRow: View {
     var diary:DiaryModel
     var body: some View {
-        HStack {
-            Text("🥌")
-                .font(.system(size: 45))
-                .cornerRadius(0.3)
+        NavigationLink {
+            DiaryDetailView(diary: diary)
+        } label: {
             
-            VStack(alignment: .leading) {
-                Text(diary.keyDateString())
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                Text(diary.title)
-                    .font(.title3)
+            
+            HStack {
+                Text("🥌")
+                    .font(.system(size: 45))
+                    .cornerRadius(0.3)
+                
+                VStack(alignment: .leading) {
+                    Text(diary.keyDateString())
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                    Text(diary.title)
+                        .font(.title3)
+                }
+                Spacer()
             }
-            Spacer()
         }
     }
 }
@@ -72,16 +77,19 @@ struct ContentsArea:View {
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.gray.ignoresSafeArea()
-                .opacity(0.2)
-            VStack {
-                TopArea()
+        NavigationView {
+            ZStack {
+                Color.gray.ignoresSafeArea()
+                    .opacity(0.2)
+                VStack {
+                    TopArea()
+                    
+                    ContentsArea()
+                }
                 
-                ContentsArea()
             }
         }
-        .padding()
+        
     }
 }
 

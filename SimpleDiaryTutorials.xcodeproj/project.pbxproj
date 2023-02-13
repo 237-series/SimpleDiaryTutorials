@@ -14,6 +14,7 @@
 		234E11BA2999FCFF00DAA7C4 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11B92999FCFF00DAA7C4 /* DiaryModel.swift */; };
 		234E11BC2999FE5D00DAA7C4 /* DiaryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11BB2999FE5D00DAA7C4 /* DiaryDataManager.swift */; };
 		234E11BE299A017500DAA7C4 /* DiaryInputModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11BD299A017500DAA7C4 /* DiaryInputModal.swift */; };
+		234E11C0299A048000DAA7C4 /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11BF299A048000DAA7C4 /* DiaryDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		234E11B92999FCFF00DAA7C4 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		234E11BB2999FE5D00DAA7C4 /* DiaryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataManager.swift; sourceTree = "<group>"; };
 		234E11BD299A017500DAA7C4 /* DiaryInputModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryInputModal.swift; sourceTree = "<group>"; };
+		234E11BF299A048000DAA7C4 /* DiaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				234E11B92999FCFF00DAA7C4 /* DiaryModel.swift */,
 				234E11BD299A017500DAA7C4 /* DiaryInputModal.swift */,
 				234E11BB2999FE5D00DAA7C4 /* DiaryDataManager.swift */,
+				234E11BF299A048000DAA7C4 /* DiaryDetailView.swift */,
 				234E11AF2999FCC800DAA7C4 /* Assets.xcassets */,
 				234E11B12999FCC800DAA7C4 /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 				234E11AE2999FCC800DAA7C4 /* ContentView.swift in Sources */,
 				234E11BA2999FCFF00DAA7C4 /* DiaryModel.swift in Sources */,
 				234E11BE299A017500DAA7C4 /* DiaryInputModal.swift in Sources */,
+				234E11C0299A048000DAA7C4 /* DiaryDetailView.swift in Sources */,
 				234E11AC2999FCC800DAA7C4 /* SimpleDiaryTutorialsApp.swift in Sources */,
 				234E11BC2999FE5D00DAA7C4 /* DiaryDataManager.swift in Sources */,
 			);

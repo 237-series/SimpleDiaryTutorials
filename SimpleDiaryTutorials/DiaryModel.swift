@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DiaryWeatherItem: CaseIterable, Codable {
+enum DiaryWeatherItem: String, CaseIterable, Codable {
     case sunny
     case cloudy
     case rain
@@ -40,6 +40,14 @@ enum DiaryFeelingItem: CaseIterable, Codable {
     case soso
 }
 
+enum DiaryStateItem:Int, CaseIterable, Codable {
+    case verygood   = 5
+    case good       = 4
+    case soso       = 3
+    case bad        = 2
+    case verybad    = 1
+}
+
 struct DiaryModel: Codable {
     var keyDate:Date
     
@@ -61,6 +69,7 @@ struct DiaryModel: Codable {
     
     var weather:DiaryWeatherItem?
     var feeling:DiaryFeelingItem?
+    var state:DiaryStateItem?
     
     
 }
