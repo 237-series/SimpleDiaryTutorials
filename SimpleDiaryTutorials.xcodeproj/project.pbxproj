@@ -15,6 +15,12 @@
 		234E11BC2999FE5D00DAA7C4 /* DiaryDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11BB2999FE5D00DAA7C4 /* DiaryDataManager.swift */; };
 		234E11BE299A017500DAA7C4 /* DiaryInputModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11BD299A017500DAA7C4 /* DiaryInputModal.swift */; };
 		234E11C0299A048000DAA7C4 /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11BF299A048000DAA7C4 /* DiaryDetailView.swift */; };
+		234E11C8299E673200DAA7C4 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11C2299E673200DAA7C4 /* DataHolder.swift */; };
+		234E11C9299E673200DAA7C4 /* MonthStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11C3299E673200DAA7C4 /* MonthStruct.swift */; };
+		234E11CA299E673200DAA7C4 /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11C4299E673200DAA7C4 /* CalendarHelper.swift */; };
+		234E11CB299E673200DAA7C4 /* DateScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11C5299E673200DAA7C4 /* DateScrollerView.swift */; };
+		234E11CC299E673200DAA7C4 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11C6299E673200DAA7C4 /* CalendarCell.swift */; };
+		234E11CD299E673200DAA7C4 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234E11C7299E673200DAA7C4 /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		234E11BB2999FE5D00DAA7C4 /* DiaryDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDataManager.swift; sourceTree = "<group>"; };
 		234E11BD299A017500DAA7C4 /* DiaryInputModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryInputModal.swift; sourceTree = "<group>"; };
 		234E11BF299A048000DAA7C4 /* DiaryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
+		234E11C2299E673200DAA7C4 /* DataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
+		234E11C3299E673200DAA7C4 /* MonthStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthStruct.swift; sourceTree = "<group>"; };
+		234E11C4299E673200DAA7C4 /* CalendarHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		234E11C5299E673200DAA7C4 /* DateScrollerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateScrollerView.swift; sourceTree = "<group>"; };
+		234E11C6299E673200DAA7C4 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		234E11C7299E673200DAA7C4 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,7 @@
 		234E11AA2999FCC800DAA7C4 /* SimpleDiaryTutorials */ = {
 			isa = PBXGroup;
 			children = (
+				234E11C1299E673200DAA7C4 /* Calendar */,
 				234E11AB2999FCC800DAA7C4 /* SimpleDiaryTutorialsApp.swift */,
 				234E11AD2999FCC800DAA7C4 /* ContentView.swift */,
 				234E11B92999FCFF00DAA7C4 /* DiaryModel.swift */,
@@ -77,6 +90,19 @@
 				234E11B22999FCC800DAA7C4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		234E11C1299E673200DAA7C4 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				234E11C2299E673200DAA7C4 /* DataHolder.swift */,
+				234E11C3299E673200DAA7C4 /* MonthStruct.swift */,
+				234E11C4299E673200DAA7C4 /* CalendarHelper.swift */,
+				234E11C5299E673200DAA7C4 /* DateScrollerView.swift */,
+				234E11C6299E673200DAA7C4 /* CalendarCell.swift */,
+				234E11C7299E673200DAA7C4 /* CalendarView.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,11 +176,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				234E11AE2999FCC800DAA7C4 /* ContentView.swift in Sources */,
+				234E11CA299E673200DAA7C4 /* CalendarHelper.swift in Sources */,
+				234E11CD299E673200DAA7C4 /* CalendarView.swift in Sources */,
 				234E11BA2999FCFF00DAA7C4 /* DiaryModel.swift in Sources */,
 				234E11BE299A017500DAA7C4 /* DiaryInputModal.swift in Sources */,
 				234E11C0299A048000DAA7C4 /* DiaryDetailView.swift in Sources */,
 				234E11AC2999FCC800DAA7C4 /* SimpleDiaryTutorialsApp.swift in Sources */,
+				234E11CC299E673200DAA7C4 /* CalendarCell.swift in Sources */,
+				234E11CB299E673200DAA7C4 /* DateScrollerView.swift in Sources */,
+				234E11C8299E673200DAA7C4 /* DataHolder.swift in Sources */,
 				234E11BC2999FE5D00DAA7C4 /* DiaryDataManager.swift in Sources */,
+				234E11C9299E673200DAA7C4 /* MonthStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
