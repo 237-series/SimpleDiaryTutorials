@@ -26,10 +26,25 @@ class DiaryDataManager:ObservableObject {
     static let DIARY_DATA_LIST_KEY = "diary_data_list_key"
     
     static let shared = DiaryDataManager()
+    var today:String = Date().dateString()
     
     @Published var dataList:[DiaryModel] = []
     @Published var keyDate = ""
-    var today:String = Date().dateString()
+    var strKeyDate: String {
+        get {
+            keyDate
+        }
+        set(newKeyDate) {
+            if keyDate == newKeyDate {
+                keyDate = ""
+                return
+            }
+            
+            keyDate = newKeyDate
+        
+        }
+    }
+    
     
     init() {
         if let data = UserDefaults.standard.value(forKey: DiaryDataManager.DIARY_DATA_LIST_KEY) as? Data {
