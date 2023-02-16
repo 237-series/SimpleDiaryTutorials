@@ -57,8 +57,8 @@ class DiaryDataManager:ObservableObject {
     
     func getDummyData() -> [DiaryModel] {
         return  [
-            DiaryModel(keyDate: Date(), title: "오늘은 좋았던 날"),
-            DiaryModel(keyDate: Date(), title: "오늘은 조금 평범했던 날")
+            DiaryModel(keyDate: Date(), title: "(예시)오늘은 좋았던 날"),
+            DiaryModel(keyDate: Date(), title: "(예시)오늘은 조금 평범했던 날")
         ]
     }
     
@@ -84,7 +84,18 @@ class DiaryDataManager:ObservableObject {
             return getDummyData()
         }
         
-        let returnList:[DiaryModel] = dataList
+        var returnList:[DiaryModel] = dataList
+        
+        if keyDate != "" {
+            returnList = []
+            for diaryModelItem in dataList {
+                if diaryModelItem.keyDateString() == keyDate {
+                    returnList.append(diaryModelItem)
+                }
+            }
+        }
+        
+        
         return returnList
     }
     
