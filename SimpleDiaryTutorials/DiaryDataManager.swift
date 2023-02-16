@@ -13,6 +13,7 @@ class DiaryDataManager:ObservableObject {
     static let shared = DiaryDataManager()
     
     @Published var dataList:[DiaryModel] = []
+    @Published var keyDate = ""
     
     init() {
         if let data = UserDefaults.standard.value(forKey: DiaryDataManager.DIARY_DATA_LIST_KEY) as? Data {

@@ -7,17 +7,56 @@
 
 import SwiftUI
 
+extension Date {
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
+    }
+}
+
+
 struct CalendarCell: View {
     @EnvironmentObject var dateHolder: DateHolder
+    @ObservedObject var manager:DiaryDataManager = DiaryDataManager.shared
     let count : Int
     let startingSpaces: Int
     let daysInMonth : Int
     let daysInPrevMonth : Int
     
     var body: some View {
-        Text(monthStruct().day())
-            .foregroundColor(textColor(type: monthStruct().monthType))
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        ZStack {
+            Text(monthStruct().day())
+                .foregroundColor(textColor(type: monthStruct().monthType))
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Circle()
+                .opacity(getKeyDate() == manager.keyDate ? 0.1 : 0.0)
+        }
+        .onTapGesture {
+            let keyDate = getKeyDate()
+            manager.keyDate = keyDate
+        }
+    }
+    
+    func getKeyDate() -> String {
+        var date = dateHolder.date
+        switch monthStruct().monthType {
+        case .Current: break;
+        case .Next: date = CalendarHelper().plusMonth(date)
+        case .Previous: date = CalendarHelper().mjinusMonth(date)
+        }
+        
+        
+        
+        let components = date.get(.year, .day, .month)
+        if let month = components.month, let year = components.year {
+            //print("day: \(day), month: \(month), year: \(year)")
+            return  String(format: "%04d-%02d-%02d", year, month, monthStruct().dayInt)
+        }
+        
+        return ""
     }
     
     func textColor(type:MonthType) -> Color {
@@ -42,5 +81,6 @@ struct CalendarCell: View {
 struct CalendarCell_Previews: PreviewProvider {
     static var previews: some View {
         CalendarCell(count: 1, startingSpaces: 1, daysInMonth: 1, daysInPrevMonth: 1)
+            .environmentObject(DateHolder())
     }
 }

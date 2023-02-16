@@ -82,9 +82,11 @@ struct ContentView: View {
                 Color.gray.ignoresSafeArea()
                     .opacity(0.2)
                 VStack {
-                    TopArea()
+                    CalendarView().environmentObject(DateHolder())
+                        .padding()
                     
                     ContentsArea()
+                    TopArea()
                 }
                 
             }
