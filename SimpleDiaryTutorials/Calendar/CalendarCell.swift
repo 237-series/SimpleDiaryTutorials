@@ -15,6 +15,7 @@ extension Date {
     func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
         return calendar.component(component, from: self)
     }
+    
 }
 
 
@@ -31,6 +32,10 @@ struct CalendarCell: View {
             Text(monthStruct().day())
                 .foregroundColor(textColor(type: monthStruct().monthType))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            Rectangle()
+                .opacity(getKeyDate() == manager.today ? 0.1 : 0.0)
+            
             Circle()
                 .opacity(getKeyDate() == manager.keyDate ? 0.1 : 0.0)
         }

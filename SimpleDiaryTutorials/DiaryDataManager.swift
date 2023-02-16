@@ -7,6 +7,21 @@
 
 import Foundation
 
+extension Date {
+    func dateString(_ date:Date? = nil) -> String {
+        var targetDate:Date = self
+        if let date = date {
+            targetDate = date
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = .current
+        
+        return dateFormatter.string(from: targetDate)
+    }
+}
+
 class DiaryDataManager:ObservableObject {
     static let DIARY_DATA_LIST_KEY = "diary_data_list_key"
     
@@ -14,6 +29,7 @@ class DiaryDataManager:ObservableObject {
     
     @Published var dataList:[DiaryModel] = []
     @Published var keyDate = ""
+    var today:String = Date().dateString()
     
     init() {
         if let data = UserDefaults.standard.value(forKey: DiaryDataManager.DIARY_DATA_LIST_KEY) as? Data {
